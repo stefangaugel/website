@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Stefan Gaugel – AI Architect & Developer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(13, 17, 23, 0.9);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(15px);
+      box-shadow: 0 2px 8px rgb(79 179 255 / 0.2);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.3s ease;
+    }
+    nav:hover {
+      background: rgba(13, 17, 23, 1);
+    }
+    nav a {
+      color: #8ab4f8;
+      text-decoration: none;
+      font-size: 17px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    nav a:hover,
+    nav a:focus {
+      background: #4fb3ff;
+      color: #0d1117;
+      box-shadow: 0 0 12px #4fb3ffaa;
+      outline: none;
+    }
+
+    /* HEADER */
+    header {
+      height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(79,179,255,0.65), rgba(15,20,25,0.9)),
+        url('header-bg.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      color: #e1e8ff;
+      position: relative;
+      overflow: hidden;
+    }
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #4fb3ff;
+      margin-bottom: 24px;
+      box-shadow: 0 0 30px #4fb3ff88;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    header img:hover {
+      transform: scale(1.07) rotate(3deg);
+      box-shadow: 0 0 45px #4fb3ffcc;
+    }
+    header h1 {
+      font-size: 4rem;
+      margin: 0;
+      font-weight: 700;
+      text-shadow: 0 0 12px #4fb3ffcc;
+      letter-spacing: 0.1em;
+      user-select: none;
+    }
+    header h2 {
+      margin-top: 12px;
+      font-size: 1.4rem;
+      font-weight: 300;
+      opacity: 0.85;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 80px auto 100px;
+      padding: 40px 40px 48px;
+      background: linear-gradient(145deg, #1c2233, #141926);
+      border-radius: 24px;
+      box-shadow:
+        0 6px 12px rgb(79 179 255 / 0.25),
+        inset 0 0 15px rgb(79 179 255 / 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    section:hover {
+      box-shadow:
+        0 12px 24px rgb(79 179 255 / 0.5),
+        inset 0 0 30px rgb(79 179 255 / 0.2);
+    }
+    section h3 {
+      margin-top: 0;
+      font-size: 2.5rem;
+      color: #4fb3ff;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 0.08em;
+      user-select: none;
+      text-shadow: 0 0 6px #4fb3ffbb;
+    }
+    section p {
+      font-size: 1.125rem;
+      margin-bottom: 18px;
+      color: #cdd6f4;
+    }
+ul {
+  padding-left: 20px;
+  line-height: 1.8;
+  list-style-type: disc; /* normal round bullets */
+  color: #eee; /* set bullet and text color to light */
+}
+    ul li {
+      margin-bottom: 12px;
+      position: relative;
+    }
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #4fb3ff;
+      font-weight: 700;
+      top: 2px;
+      font-size: 1.2rem;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      border-left: 4px solid #4fb3ff;
+      padding-left: 28px;
+      position: relative;
+      margin-top: 10px;
+    }
+    .timeline-item {
+      margin-bottom: 40px;
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -13px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: #4fb3ff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4fb3ffaa;
+      border: 3px solid #0d1117;
+      transition: background-color 0.3s ease;
+    }
+    .timeline-item:hover::before {
+      background-color: #76c7ff;
+      box-shadow: 0 0 15px #76c7ffcc;
+    }
+    .timeline-item h4 {
+      margin: 0 0 4px 0;
+      font-size: 1.45rem;
+      color: #e1e8ff;
+      font-weight: 600;
+      user-select: text;
+    }
+    .timeline-item span {
+      color: #4fb3ff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      user-select: text;
+    }
+
+    /* JSON BLOCK */
+    .json-block {
+      background: #0b1220;
+      color: #4fb3ff;
+      padding: 24px 20px;
+      border-radius: 14px;
+      overflow-x: auto;
+      font-size: 14px;
+      font-family: 'Courier New', Courier, monospace;
+      box-shadow: inset 0 0 20px #4fb3ff44;
+      user-select: text;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #8b95a1;
+      opacity: 0.75;
+      user-select: none;
+      letter-spacing: 0.05em;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      nav {
+        gap: 20px;
+        padding: 15px 20px;
+      }
+      nav a {
+        font-size: 14px;
+        margin: 0 8px;
+      }
+      header h1 {
+        font-size: 2.8rem;
+      }
+      header h2 {
+        font-size: 1rem;
+      }
+      section {
+        margin: 60px 20px 80px;
+        padding: 30px 24px 36px;
+      }
+      section h3 {
+        font-size: 2rem;
+      }
+      .timeline {
+        padding-left: 20px;
+      }
+      .timeline-item {
+        padding-left: 18px;
+        margin-bottom: 30px;
+      }
+      .timeline-item::before {
+        left: -10px;
+        width: 14px;
+        height: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about" tabindex="1">About</a>
+    <a href="#experience" tabindex="2">Experience</a>
+    <a href="#education" tabindex="3">Education</a>
+    <a href="#tech" tabindex="4">Tech Stack</a>
+    <a href="#certs" tabindex="5">Certifications</a>
+    <a href="#contact" tabindex="6">Contact</a>
+  </nav>
+
+  <header>
+    <img src="profile.jpg" alt="Profile Photo" loading="lazy" />
+    <h1>Dr. Stefan Gaugel</h1>
+    <h2>AI Architect · AI Developer · Cloud & Data Engineer</h2>
+  </header>
+
+  <section id="about" tabindex="-1">
+    <h3>About Me</h3>
+    <p>
+      With over <strong>10 years of experience</strong> across Data Engineering, AI Research, Cloud Architecture,
+      and enterprise-grade analytics platforms, I help organizations transform complex data into strategic value.
+      My career spans roles as a Data Analytics Architect, AI Innovation Engineer, Lecturer, and Industrial Engineer,
+      giving me a unique blend of technical depth, architectural vision, and business understanding.
+    </p>
+    <p>
+      I have designed and led the implementation of a enterprise-wide AI projects with strategic value,
+      delivered innovative machine-learning solutions for Industry 4.0, and shaped enterprise data governance,
+      quality, and compliance frameworks. My PhD research focused on advanced machine‑learning methods
+      for industrial time-series data, combining academic rigor with real-world engineering impact.
+    </p>
+    <p>
+      Today, as a Freelance <strong>AI Architect & AI Developer</strong>, I help companies build scalable, secure, and future-proof
+      AI ecosystems — from cloud-native architectures to ML pipelines, MLOps automation, and AI-driven optimization.
+    </p>
+  </section>
+
+  <section id="experience" tabindex="-1">
+    <h3>Professional Experience</h3>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h4>Lead Data & AI Architect — Bosch Group</h4>
+        <span>10/2023 – present</span>
+        <ul>
+          <li>Lead architect for enterprise-wide Azure-based Data & AI platform</li>
+          <li>Designed and implemented big data pipelines for enterprise models</li>
+          <li>Created data governance, quality, and compliance frameworks</li>
+          <li>Consulting on advanced AI and analytics use cases</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h4>AI Innovation Engineer - Bosch Group</h4>
+        <span>06/2021 – 09/2023</span>
+        <ul>
+          <li>Developed novel ML methods for industrial time-series</li>
+          <li>Led the “Data-Driven Test Cycle Optimization” project</li>
+          <li>Regular steering committee presentations to C‑level</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h4>University Lecturer </h4>
+        <span>02/2022 – present</span>
+        <ul>
+          <li>Teaching AI Engineering, Architecture, Algorithms, Innovation</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h4>Software Engineering — Siemens AG</h4>
+        <span>07/2020 – 10/2021</span>
+        <ul>
+          <li>Developed app prototype for SLM additive manufacturing</li>
+          <li>Integrated SQL backend systems & APIs</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h4>Industrial Engineer & Data Analyst — Reiff Technische Produkte</h4>
+        <span>2014 – 2018</span>
+        <ul>
+          <li>Product portfolio management and data analytics</li>
+          <li>Process optimization initiatives</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education" tabindex="-1">
+    <h3>Academic Background</h3>
+    <ul>
+      <li><strong>PhD in Artificial Intelligence & Data Science</strong>, University of Ulm, Germany</li>
+      <li><strong>M.Sc. Management & Technology</strong>, TU Munich, Germany </li>
+      <li><strong>B.Eng. Industrial Engineering</strong>, DHBW Stuttgart, Germany </li>
+    </ul>
+  </section>
+
+  <section id="tech" tabindex="-1">
+    <h3>Tech Skills</h3>
+    <pre class="json-block">{
+  "cloud": ["Azure", "AWS"],
+  "data_engineering": ["Databricks", "Delta Lake", "DLT", "Spark", "Pyspark"],
+  "ai_frameworks": ["LangChain", "AutoGen", "TensorFlow", "Keras", "Scikit-learn"],
+  "languages": ["Python", "JAva", "SQL"],
+  "analytics": ["Synapse", "PowerBI", "´MS Fabric"],
+  "devops": ["Git", "Docker", "Terraform", "Ansible]
+}</pre>
+  </section>
+
+  <section id="certs" tabindex="-1">
+    <h3>Certifications</h3>
+    <ul>
+      <li>Microsoft Azure Data Engineer Associate (DP-203)</li>
+      <li>Microsoft Azure DevOps Solution Designer (AZ-400)</li>
+      <li>Microsoft Azure IoT Developer (AZ-220)</li>
+      <li>AWS Cloud Practitioner</li>
+      <li>Professional Scrum Master (PSM I)</li>
+    </ul>
+  </section>
+
+  <section id="contact" tabindex="-1">
+    <h3>Contact</h3>
+    <p>Email: <strong>stefan.gaugel@gmx.net</strong></p>
+    <p>Phone: <strong>+49 1578 8348966</strong></p>
+    <p>Location: Munich, Germany</p>
+  </section>
+
+  <footer>© 2025 Dr. Stefan Gaugel — Freelance AI Architect & Developer</footer>
+
+</body>
+</html>
